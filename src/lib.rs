@@ -40,7 +40,7 @@ impl std::fmt::Display for HeapError {
     }
 }
 
-impl<T: std::fmt::Debug + Clone + Copy> Sallocator<T> {
+impl<T: Clone + Copy> Sallocator<T> {
     pub fn new() -> Result<Self, HeapError> {
         let addr: *mut T = ptr::null_mut();
         let free: *mut c_void = ptr::null_mut();
