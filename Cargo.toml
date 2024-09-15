@@ -2,6 +2,12 @@
 name = "salloc"
 version = "0.1.0"
 edition = "2021"
+license = "Apache 2.0"
+description = "Safe C-like memory allocator for windows"
+homepage = "https://github.com/DevNitrate/salloc"
+repository = "https://github.com/DevNitrate/salloc"
+readme = "README.md"
+authors = ["DevNitrate"]
 
 [dependencies]
 windows-sys = { version = "0.59.0", features = ["Win32_System_Memory"] }
