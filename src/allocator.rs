@@ -2,7 +2,6 @@ use std::{ffi::c_void, marker::PhantomData, ptr};
 use windows_sys::Win32::{Foundation::BOOL, System::Memory::*};
 
 pub struct Sallocator<T> {
-    type_size: usize,
     size: usize,
     free: *mut c_void,
     addr: *mut T,
@@ -11,12 +10,10 @@ pub struct Sallocator<T> {
 
 impl<T: std::fmt::Debug + Clone + Copy> Sallocator<T> {
     pub fn new(size: usize) -> Self {
-        let type_size: usize = size_of::<T>();
         let addr: *mut T = ptr::null_mut();
         let free: *mut c_void = ptr::null_mut();
 
         Sallocator {
-            type_size,
             size,
             free,
             addr,
